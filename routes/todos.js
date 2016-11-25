@@ -15,9 +15,9 @@ router.get('/', function(req, res, next) {
 
 /* GET /todos/:id listing. */
 router.get('/:id', function(req, res, next) {
-  Todo.findById(req.params.id, function (err, post) {
+  Todo.findById(req.params.id, function (err, todos) {
     if (err) return next(err);
-    res.json(post);
+    res.json(todos);
   });
 });
 
@@ -30,6 +30,7 @@ router.post('/', function(req, res, next) {
   });
 });
 
+
 /* PUT /todos/:id */
 router.put('/:id', function(req, res, next) {
   Todo.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
@@ -38,13 +39,22 @@ router.put('/:id', function(req, res, next) {
   });
 });
 
+
 /* DELETE /todos/:id */
 router.delete('/:id', function(req, res, next) {
-  Todo.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  Todo.findByIdAndRemove(req.params.id, req.body, function (err, writeres) {
     if (err) return next(err);
-    res.json(post);
+    res.json(writeres);
   });
 });
 
+
+/* DELETE /todos/ */
+router.delete('/', function(req, res, next) {
+  Todo.remove({}, function (err, writeres) {
+    if (err) return next(err);
+    res.json(writeres);
+  });
+});
 
 module.exports = router;
