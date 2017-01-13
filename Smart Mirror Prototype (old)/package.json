@@ -1,0 +1,29 @@
+{
+  "name": "smart_mirror_prototype",
+  "version": "1.0.0",
+  "description": "constructing a back end of a server that will host a database of preferences and website to modify the database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasvn/API_Sandbox.git"
+  },
+  "keywords": [
+    "smart",
+    "mirror"
+  ],
+  "author": "Thomas Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasvn/API_Sandbox/issues"
+  },
+  "homepage": "https://github.com/thomasvn/API_Sandbox#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.6",
+    "node-restful": "^0.2.5"
+  }
+}
