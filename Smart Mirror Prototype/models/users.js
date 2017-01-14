@@ -5,21 +5,24 @@ var mongoose = require('mongoose');
 // -------------------- Schema -------------------- //
 var userSchema = mongoose.Schema({
     name: {
-        type: String,
-        required: true
+        type: String
     },
     email: {
-        type: String,
-        required: true
+        type: String
     }
 });
 
 
 // -------------------- Export Mongoose Model -------------------- //
-var User = mongoose.model('User', userSchema) = module.exports;
+// A model is a class with which we construct documentss
+var User = module.exports  = mongoose.model('User', userSchema);
 
 
-// Get Users
-module.exports.getUsers = function(callback, limit) {
-    User.find(callback).limit(limit)
+// -------------------- Model Configuration -------------------- //
+module.exports.getUsers = function(callback) {
+    User.find(callback);
+}
+
+module.exports.addUser = function(user, callback) {
+    User.create(user, callback);
 }
